@@ -243,3 +243,47 @@ JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 703: Error: Pha
 JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 703: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
 JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 703: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
 JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 703: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+1675487898504	geckodriver	INFO	Listening on 127.0.0.1:52819
+1675487901549	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--disable-gpu" "--window-size ... 0" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vikas\\AppData\\Local\\Temp\\rust_mozprofiledfbYKj"
+*** You are running in headless mode.
+1675487902747	Marionette	INFO	Marionette enabled
+1675487902757	Marionette	INFO	Listening on port 52831
+Read port: 52831
+WebDriver BiDi listening on ws://127.0.0.1:52820
+1675487903007	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\vikas\\AppData\\Local\\Temp\\rust_mozprofiledfbYKj\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:52820/devtools/browser/c91bd28a-076a-4dca-9a5f-08416b59a88e
+1675487917605	geckodriver	INFO	Listening on 127.0.0.1:52859
+1675487920646	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--disable-gpu" "--window-size ... 0" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vikas\\AppData\\Local\\Temp\\rust_mozprofileEcE8lP"
+*** You are running in headless mode.
+1675487921386	Marionette	INFO	Marionette enabled
+1675487921395	Marionette	INFO	Listening on port 52870
+Read port: 52870
+WebDriver BiDi listening on ws://127.0.0.1:52860
+1675487921602	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\vikas\\AppData\\Local\\Temp\\rust_mozprofileEcE8lP\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:52860/devtools/browser/3d5f5292-30b8-4a51-815f-a7922013ee79
+1675487934631	geckodriver	INFO	Listening on 127.0.0.1:52898
+1675487937645	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--disable-gpu" "--window-size ... 9" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vikas\\AppData\\Local\\Temp\\rust_mozprofileUdlt55"
+*** You are running in headless mode.
+1675487938818	Marionette	INFO	Marionette enabled
+1675487938831	Marionette	INFO	Listening on port 52908
+Read port: 52908
+WebDriver BiDi listening on ws://127.0.0.1:52899
+1675487939117	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\vikas\\AppData\\Local\\Temp\\rust_mozprofileUdlt55\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:52899/devtools/browser/c8bedbc5-d904-4d53-8825-011435e90112
+1675487953233	geckodriver	INFO	Listening on 127.0.0.1:52938
+1675487956208	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--disable-gpu" "--window-size ... 9" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vikas\\AppData\\Local\\Temp\\rust_mozprofileXFSYXo"
+*** You are running in headless mode.
+1675487957226	Marionette	INFO	Marionette enabled
+1675487957235	Marionette	INFO	Listening on port 52948
+Read port: 52948
+WebDriver BiDi listening on ws://127.0.0.1:52939
+1675487957461	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\vikas\\AppData\\Local\\Temp\\rust_mozprofileXFSYXo\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:52939/devtools/browser/c58cec83-ace0-4773-8f32-6e1b948d1b21

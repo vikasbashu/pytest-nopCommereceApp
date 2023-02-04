@@ -1,14 +1,17 @@
 import pytest
-
+import allure
 from pageObjects.AddCustomerPage import Addcustomer
 from pageObjects.SearchCustomer import SearchCustomer
 from pageObjects.LoginPage import Login
 
+
+@allure.severity(allure.severity_level.NORMAL)
 class Test_003_Search_Customer:
 
     username = "admin@yourstore.com"
     password = "admin"
 
+    @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.smoke
     def test_search_customer_by_email(self, setup):
         self.driver = setup
@@ -36,12 +39,13 @@ class Test_003_Search_Customer:
         if search_value in self.result:
             assert True
         else:
-            self.driver.save_screenshot('Screenshots/{}.png'.format(search_value))
+            self.customerPage.commonMethods.addAllureScreenShot(search_value)
             assert "No data available in table" == self.result
             assert False
 
         self.driver.close()
 
+    @allure.severity(allure.severity_level.MINOR)
     @pytest.mark.smoke
     def test_search_customer_by_name(self, setup):
         self.driver = setup
@@ -69,9 +73,14 @@ class Test_003_Search_Customer:
         if search_value in self.result:
             assert True
         else:
-            self.driver.save_screenshot('Screenshots/{}.png'.format(search_value))
+            self.customerPage.commonMethods.addAllureScreenShot(search_value)
             assert "No data available in table" == self.result
             assert False
 
         self.driver.close()
+
+    @pytest.mark.skip("Implement this later")
+    def test_search_customer_by_lastName(self):
+        pass
+
 

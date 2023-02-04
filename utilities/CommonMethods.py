@@ -1,3 +1,4 @@
+from allure_commons.types import AttachmentType
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait, Select
@@ -6,6 +7,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, \
     ElementNotVisibleException, InvalidArgumentException
 import time, re
+import allure
 
 
 class CommonFunctions:
@@ -45,7 +47,7 @@ class CommonFunctions:
         WebDriverWait(self.driver, time_out).until(EC.invisibility_of_element_located((By.XPATH, locator)))
 
     def getTextFromLocator(self, locator):
-        return WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, locator))).text
+        return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, locator))).text
 
     def seeTextOnLocator(self, locator, text):
         assert WebDriverWait(self.driver, 5).until(EC.text_to_be_present_in_element((By.XPATH, locator), text))
@@ -176,3 +178,6 @@ class CommonFunctions:
         close_toast_button =  "(//*[contains(text(), \"{}\")]/following::button)[1]".format(message)
         self.clickElement(close_toast_button)
         self.dontseeElement(locator)
+
+    def addAllureScreenShot(self, file_name):
+        allure.attach(self.driver.get_screenshot_as_png(), name=file_name, attachment_type=AttachmentType.PNG)

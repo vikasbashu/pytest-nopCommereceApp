@@ -43,6 +43,7 @@ class SearchCustomer:
         self.commonMethods.clickLocatorById(self.button_search_id)
 
     def getOutputResult(self):
+        self.commonMethods.wait(5)
         self.commonMethods.scrollElementToView(self.search_result_xpath.format(1, self.table_output_index[self.search_criteria]))
         return self.commonMethods.getTextFromLocator(self.search_result_xpath.format(1, self.table_output_index[self.search_criteria]))
 

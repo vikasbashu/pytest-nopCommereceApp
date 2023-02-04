@@ -11,15 +11,19 @@ class Test_003_Search_Customer:
     username = "admin@yourstore.com"
     password = "admin"
 
+    @pytest.mark.xdist_group(name="Suit2")
     @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.smoke
-    def test_search_customer_by_email(self, setup):
+    @pytest.mark.parametrize("username, password", [
+        ("admin@yourstore.com", "admin")
+    ])
+    def test_search_customer_by_email(self, setup, username, password):
         self.driver = setup
         search_value = "brenda_lindgren@nopCommerce.com"
         # login into application
         self.loginPage = Login(self.driver)
-        self.loginPage.setUserName(self.username)
-        self.loginPage.setPassword(self.password)
+        self.loginPage.setUserName(username)
+        self.loginPage.setPassword(password)
         self.loginPage.clickLogin()
         assert self.driver.title == "Dashboard / nopCommerce administration", self.driver.save_screenshot(
             str('Screenshots/{}.png'.format(self.driver.title)))
@@ -45,6 +49,7 @@ class Test_003_Search_Customer:
 
         self.driver.close()
 
+    @pytest.mark.xdist_group(name="Suit2")
     @allure.severity(allure.severity_level.MINOR)
     @pytest.mark.smoke
     def test_search_customer_by_name(self, setup):
@@ -79,6 +84,7 @@ class Test_003_Search_Customer:
 
         self.driver.close()
 
+    @pytest.mark.xdist_group(name="Suit2")
     @pytest.mark.skip("Implement this later")
     def test_search_customer_by_lastName(self):
         pass

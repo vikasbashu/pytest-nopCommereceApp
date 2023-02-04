@@ -2,3 +2,4 @@
 Reports/
 .idea/
 venv/
+testCases/__pycache__/

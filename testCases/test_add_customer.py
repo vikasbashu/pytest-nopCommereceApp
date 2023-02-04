@@ -5,16 +5,17 @@ from pageObjects.LoginPage import Login
 
 class Test_002_add_customer:
 
-    username = "admin@yourstore.com"
-    password = "admin"
-
+    @pytest.mark.xdist_group(name="Suit2")
     @pytest.mark.smoke
-    def test_add_customer_feature(self, setup):
+    @pytest.mark.parametrize("username, password", [
+        ("admin@yourstore.com", "admin")
+    ])
+    def test_add_customer_feature(self, setup, username, password):
         self.driver = setup
         # login into application
         self.loginPage = Login(self.driver)
-        self.loginPage.setUserName(self.username)
-        self.loginPage.setPassword(self.password)
+        self.loginPage.setUserName(username)
+        self.loginPage.setPassword(password)
         self.loginPage.clickLogin()
         assert self.driver.title == "Dashboard / nopCommerce administration", self.driver.save_screenshot(
             str('Screenshots/{}.png'.format(self.driver.title)))
@@ -22,8 +23,8 @@ class Test_002_add_customer:
         self.addCustomerPage = Addcustomer(self.driver)
         self.addCustomerPage.selectSubCategory('Customer')
         self.addCustomerPage.clickAddNewButton()
-        assert self.driver.title == "Add a new customer / nopCommerce administration", self.driver.save_screenshot(
-            str('Screenshots/{}.png'.format(self.driver.title)))
+        assert self.driver.title == "Add a new customer / nopCommerce administration", \
+            self.addCustomerPage.commonMethods.addAllureScreenShot(self.driver.title)
         self.driver.close()
 
 

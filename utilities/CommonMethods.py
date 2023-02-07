@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, \
-    ElementNotVisibleException, InvalidArgumentException
+    ElementNotVisibleException, InvalidArgumentException, NoAlertPresentException
 import time, re
 import allure
 
@@ -56,13 +56,15 @@ class CommonFunctions:
         flag = False
         try:
             element = WebDriverWait(self.driver, time_out).until(EC.visibility_of_element_located((By.XPATH, locator)))
-            if element.is_displayed():
-                flag = True
+            assert element.is_displayed()
         except TimeoutException:
             flag = False
         except InvalidArgumentException:
             flag = False
-        return flag
+        else:
+            flag = True
+        finally:
+            return flag
 
     def selectValue(self, locator, visible_text):
         element = self.driver.find_element(By.XPATH, locator)
@@ -76,7 +78,7 @@ class CommonFunctions:
         assert re.search(sub_string, super_string)
 
     def fillField(self, locator, text):
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, locator))).send_keys(text)
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, locator))).clear().send_keys(text)
 
     def pressKey(self, key):
         """Function created to press keyboard keys"""
@@ -96,10 +98,16 @@ class CommonFunctions:
         self.driver.switch_to.default_content()
 
     def acceptAlerts(self):
-        self.driver.switch_to.alert().accept()
+        try:
+            self.driver.switch_to.alert().accept()
+        except NoAlertPresentException:
+            pass
 
     def dismissAlert(self):
-        self.driver.switch_to.alert().dismiss()
+        try:
+            self.driver.switch_to.alert().dismiss()
+        except NoAlertPresentException:
+            pass
 
     def scrollTo(self, start_value, end_value):
         """Scroll down the page by pixel to pixel"""

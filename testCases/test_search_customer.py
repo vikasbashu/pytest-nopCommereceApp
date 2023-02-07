@@ -11,6 +11,8 @@ class Test_003_Search_Customer:
     username = "admin@yourstore.com"
     password = "admin"
 
+    @pytest.mark.dependency()
+    @pytest.mark.order(1)
     @pytest.mark.xdist_group(name="Suit2")
     @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.smoke
@@ -49,6 +51,8 @@ class Test_003_Search_Customer:
 
         self.driver.close()
 
+    @pytest.mark.dependency(depends=['test_search_customer_by_email'])
+    @pytest.mark.order(2)
     @pytest.mark.xdist_group(name="Suit2")
     @allure.severity(allure.severity_level.MINOR)
     @pytest.mark.smoke
@@ -84,8 +88,10 @@ class Test_003_Search_Customer:
 
         self.driver.close()
 
+    @pytest.mark.order(3)
+    @allure.severity(allure.severity_level.NORMAL)
     @pytest.mark.xdist_group(name="Suit2")
-    @pytest.mark.skip("Implement this later")
+    @pytest.mark.skip("Will implement this later")
     def test_search_customer_by_lastName(self):
         pass
 

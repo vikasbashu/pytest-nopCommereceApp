@@ -20,8 +20,10 @@ py==1.11.0
 pycparser==2.21
 PySocks==1.7.1
 pytest==7.2.1
+pytest-dependency==0.5.1
 pytest-html==3.2.0
 pytest-metadata==2.0.4
+pytest-order==1.0.1
 pytest-xdist==3.1.0
 python-dotenv==0.21.1
 requests==2.28.2

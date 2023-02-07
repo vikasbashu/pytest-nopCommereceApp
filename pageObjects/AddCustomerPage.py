@@ -16,6 +16,7 @@ class Addcustomer:
 
     def selectSubCategory(self, category):
         self.commonMethods.waitForVisible(self.text_sideNavBar_customers_xpath, self.min_wait)
+        self.commonMethods.acceptAlerts()
         self.commonMethods.clickElement(self.text_sideNavBar_customers_xpath)
         self.commonMethods.waitForVisible(self.text_subCategory_xpath, self.min_wait)
         self.commonMethods.clickElement(self.text_subCategory_xpath)

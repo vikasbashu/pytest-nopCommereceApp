@@ -3,10 +3,12 @@ from pageObjects.GoRestUserProfilePage import UserProfile
 from utilities import GenericFunctions
 import random
 import pytest
+import allure
 
 class Test_Go_Rest_API_Test_004:
     goRestUser = UserProfile()
 
+    @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.xdist_group(name="Suit3")
     @pytest.hookimpl(tryfirst=True)
     @pytest.mark.api
@@ -64,6 +66,7 @@ class Test_Go_Rest_API_Test_004:
         assert self.goRestUser.resp["name"] != response["name"]
         self.goRestUser.resp = response
         self.test_get_user_request()
+
 
     @pytest.mark.xdist_group(name="Suit3")
     @pytest.hookimpl(trylast=True)

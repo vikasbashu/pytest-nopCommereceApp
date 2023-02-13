@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from utilities import CommonMethods
+from utilities.CommonMethods import CommonFunctions
 
 class Login:
 
@@ -14,7 +14,7 @@ class Login:
 
     def __init__(self, driver):
         self.driver = driver
-        #super(driver)
+        self.commonMethods = CommonFunctions(self.driver)
 
 
     def setUserName(self, username):

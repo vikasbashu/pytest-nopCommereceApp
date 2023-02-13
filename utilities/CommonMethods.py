@@ -189,3 +189,7 @@ class CommonFunctions:
 
     def addAllureScreenShot(self, file_name):
         allure.attach(self.driver.get_screenshot_as_png(), name=file_name, attachment_type=AttachmentType.PNG)
+
+    def pressButton(self, label):
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(
+            (By.XPATH, "(//button[@type='submit'and @name='{}'])[1]".format(label)))).click()

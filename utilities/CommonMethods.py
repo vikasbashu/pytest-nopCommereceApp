@@ -91,8 +91,8 @@ class CommonFunctions:
     def verifyTitle(self, title):
         assert self.driver.title == title
 
-    def switchToIframe(self):
-        self.driver.switch_to.frame(self.driver.find_element(By.XPATH, "(//iframe)"))
+    def switchToIframe(self, locator):
+        self.driver.switch_to.frame(self.driver.find_element(By.XPATH, locator))
 
     def switchToParent(self):
         self.driver.switch_to.default_content()

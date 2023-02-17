@@ -11,6 +11,9 @@ class Addcustomer:
     def page_title(self, title):
         return "(//h1[contains(text(), '{}')])[1]".format(title)
 
+    def sub_category_xpath(self, sub_category, index):
+        return "(//p[contains(text(), '{}')])[{}]".format(sub_category, str(index))
+
     def select_gender(self, label):
         if label.lower() == "m":
             return "Gender_Male"
@@ -23,11 +26,14 @@ class Addcustomer:
 
 
     def selectSubCategory(self, category):
+        index = 1
+        if category.lower() == 'customer':
+            index = 2
         self.commonMethods.waitForVisible(self.text_sideNavBar_customers_xpath, self.min_wait)
         self.commonMethods.acceptAlerts()
         self.commonMethods.clickElement(self.text_sideNavBar_customers_xpath)
-        self.commonMethods.waitForVisible(self.text_subCategory_xpath, self.min_wait)
-        self.commonMethods.clickElement(self.text_subCategory_xpath)
+        self.commonMethods.waitForVisible(self.sub_category_xpath(category, index), self.min_wait)
+        self.commonMethods.clickElement(self.sub_category_xpath(category, index))
 
 
     def clickAddNewButton(self):

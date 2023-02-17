@@ -1,9 +1,7 @@
 import pytest
-from _pytest import python
 import allure
 from pageObjects.LoginPage import Login
 from datetime import datetime
-#from Configurations.readProperties import ReadConfig
 from utilities.customLogger import LogGen
 
 
